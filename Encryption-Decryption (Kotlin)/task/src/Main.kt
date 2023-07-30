@@ -1,23 +1,20 @@
 package encryptdecrypt
 
-const val ALPHABET_SHIFT = 25
-const val START_CODE = 'a'.code
-val ALPHABET_RANGE = START_CODE..START_CODE + ALPHABET_SHIFT
-const val msg = "we found a treasure!"
+const val AB_LENGTH = 26
+const val A = 'a'
 
 fun main() {
-    println(encryptSentence(msg))
+    val msg = readln()
+    val offset = readln().toInt()
+    println(encryptSentence(msg, offset))
 }
 
-
-fun encryptSentence(s: String): String {
-    val sb = StringBuilder(s.length)
-    s.forEach { sb.append(getOppositeLetter(it)) }
-    return sb.toString()
+fun shift(ch: Char, offset: Int): Char {
+    return if (ch in A until A + AB_LENGTH) 
+        A + (ch - A + offset) % AB_LENGTH 
+    else ch
 }
 
-fun getOppositeLetter(char: Char): Char {
-    return if (char.code !in ALPHABET_RANGE) char
-    else Char(2 * START_CODE + ALPHABET_SHIFT - char.code)
+fun encryptSentence(s: String, offset: Int): String {
+    return s.map { shift(it, offset) }.joinToString("")
 }
-
