@@ -79,6 +79,15 @@ files:
         }
     }
   learner_created: false
+- name: src/EncDec.kt
+  visible: true
+  text: |-
+    package encryptdecrypt
+
+    class EncDec(private val msg: String, private val shift: Int) {
+        fun process() = msg.map { it + shift }.joinToString("")
+    }
+  learner_created: true
 feedback_link: https://hyperskill.org/learn/step/21969#comment
 status: Unchecked
 record: -1
