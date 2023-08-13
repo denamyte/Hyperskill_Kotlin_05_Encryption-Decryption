@@ -8,3 +8,6 @@ content:
 - Functional decomposition
 - Errors in programs
 - Arrays
+- String arrays
+- Reading data with a readln
+- The main() function
