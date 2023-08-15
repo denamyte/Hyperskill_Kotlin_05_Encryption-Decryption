@@ -88,6 +88,12 @@ files:
         fun process() = msg.map { it + shift }.joinToString("")
     }
   learner_created: true
+- name: src/Parser.kt
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/learn/step/21969#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Tue, 15 Aug 2023 23:03:54 UTC"
 record: -1
