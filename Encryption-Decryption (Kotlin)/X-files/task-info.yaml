@@ -114,6 +114,35 @@ files:
         }
     }
   learner_created: false
+- name: src/EncDec.kt
+  visible: true
+  text: |
+    package encryptdecrypt
+
+    fun encDec(msg: String, shift: Int) = msg.map { it + shift }.joinToString("")
+  learner_created: true
+- name: src/Parser.kt
+  visible: true
+  text: |-
+    package encryptdecrypt
+
+    class Parser(args: Array<String>) {
+
+        private val paramMap = mutableMapOf<String, String>()
+
+        init {
+            for (i in 0..args.lastIndex step 2) paramMap[args[i]] = args[i + 1]
+        }
+
+        val modeDir = paramMap.getOrDefault("-mode", "enc")
+            .run { if (this == "enc") 1 else -1 }
+
+        val key = paramMap.getOrDefault("-key", "0")
+            .toInt()
+
+        val data = paramMap.getOrDefault("-data", "")
+    }
+  learner_created: true
 feedback_link: https://hyperskill.org/learn/step/21970#comment
 status: Unchecked
 record: -1
