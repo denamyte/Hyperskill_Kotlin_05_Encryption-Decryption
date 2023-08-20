@@ -12,3 +12,5 @@ content:
 - Reading data with a readln
 - The main() function
 - Random
+- Functions as objects
+- Equality
