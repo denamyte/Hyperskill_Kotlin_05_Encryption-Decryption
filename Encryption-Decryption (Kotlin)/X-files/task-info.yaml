@@ -143,6 +143,12 @@ files:
         val data = paramMap.getOrDefault("-data", "")
     }
   learner_created: true
+- name: output.txt
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/learn/step/21970#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Mon, 21 Aug 2023 21:32:03 UTC"
 record: -1

@@ -1,5 +1,7 @@
 package encryptdecrypt
 
+import java.io.File
+
 class Parser(args: Array<String>) {
 
     private val paramMap = mutableMapOf<String, String>()
@@ -14,5 +16,16 @@ class Parser(args: Array<String>) {
     val key = paramMap.getOrDefault("-key", "0")
         .toInt()
 
-    val data = paramMap.getOrDefault("-data", "")
+    val data: String
+        get() {
+            val text = paramMap.getOrDefault("-data", "")
+            if (text.isNotEmpty()) return text
+
+            val name = paramMap.getOrDefault("-in", "")
+            if (name.isEmpty()) return ""
+
+            return File(name).readText()
+        }
+    
+    val out = paramMap.getOrDefault("-out", "")
 }
