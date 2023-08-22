@@ -176,6 +176,33 @@ files:
 
     }
   learner_created: false
+- name: src/EncDec.kt
+  visible: true
+  text: |
+    package encryptdecrypt
+
+    fun encDec(msg: String, shift: Int) = msg.map { it + shift }.joinToString("")
+  learner_created: true
+- name: src/Parser.kt
+  visible: true
+  text: "package encryptdecrypt\n\nimport java.io.File\n\nclass Parser(args: Array<String>)\
+    \ {\n\n    private val paramMap = mutableMapOf<String, String>()\n\n    init {\n\
+    \        for (i in 0..args.lastIndex step 2) paramMap[args[i]] = args[i + 1]\n\
+    \    }\n\n    val modeDir = paramMap.getOrDefault(\"-mode\", \"enc\")\n      \
+    \  .run { if (this == \"enc\") 1 else -1 }\n\n    val key = paramMap.getOrDefault(\"\
+    -key\", \"0\")\n        .toInt()\n\n    val data: String\n        get() {\n  \
+    \          val text = paramMap.getOrDefault(\"-data\", \"\")\n            if (text.isNotEmpty())\
+    \ return text\n\n            val name = paramMap.getOrDefault(\"-in\", \"\")\n\
+    \            if (name.isEmpty()) return \"\"\n\n            return File(name).readText()\n\
+    \        }\n    \n    val out = paramMap.getOrDefault(\"-out\", \"\")\n}"
+  learner_created: true
+- name: output.txt
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/learn/step/21971#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: Well done! You've finished the project. Select a new project on <a href="https://hyperskill.org/projects">Hyperskill</a>
+    to continue learning.
+  time: "Tue, 22 Aug 2023 22:45:26 UTC"
 record: -1

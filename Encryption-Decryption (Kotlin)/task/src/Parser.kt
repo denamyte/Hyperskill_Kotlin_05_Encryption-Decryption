@@ -26,6 +26,8 @@ class Parser(args: Array<String>) {
 
             return File(name).readText()
         }
-    
+
     val out = paramMap.getOrDefault("-out", "")
+
+    val alg = paramMap.getOrDefault("-alg", "shift")
 }
